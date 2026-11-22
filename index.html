@@ -23,6 +23,28 @@
                 <p id="live-clock"></p>
             </div>
         </aside>
+
+        <!---Main Menu Section--->
+        <main class="menu-section">
+            <header class="top-bar">
+                <h1>Menu Items</h1>
+                <input type="text" id="search-input" placeholder="Search burgers, fries, drinks....">
+            </header>
+
+            <!---Category Filter Button--->
+            <div class="categories">
+                <button class="cat-btn active" onclick="filterCategory('All')">All</button>
+                <button class="cat-btn" onclick="filterCategory('Burgers')">Burgers</button>
+                <button class="cat-btn" onclick="filterCategory('Fries')">Fries</button>
+                <button class="cat-btn" onclick="filterCategory('Drinks')">Drinks</button>
+                <button class="cat-btn" onclick="filterCategory('Desserts')">Desserts</button>
+            </div>
+
+            <!---Menu Cards Gride--->
+            <div class="menu-grid" id="menu-grid">
+                <!--Js item load in this class-->
+            </div>
+        </main>
     </div>
 </body>
 </html>
