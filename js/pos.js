@@ -32,3 +32,16 @@ function renderMenu(items) {
         grid.appendChild(card);
     });
 }
+
+// Filter by Category
+function filterCategory(category) {
+    currentCategory = category;
+    document.querySelectorAll(".cat.btn").forEach(btn => {
+        btn.classList.toggle("active", btn.innerText.includes(category)|| (category === 'All' && btn.innerText === 'All'));
+    });
+
+    const filtered = category === "All"
+        ? menuItems
+        : menuItems.filter(item => item.category === category);
+    renderMenu(filtered);
+}
