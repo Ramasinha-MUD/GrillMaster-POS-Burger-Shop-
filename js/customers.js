@@ -44,3 +44,10 @@ function renderCustomers() {
         tbody.innerHTML += row;
     });
 }
+
+// Delete customer by index and update localStorage
+function deleteCustomer(index) {
+    customers.splice(index, 1);
+    localStorage.setItem("pos_customers", JSON.stringify(customers));
+    renderCustomers();
+}
