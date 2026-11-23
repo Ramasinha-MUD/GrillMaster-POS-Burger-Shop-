@@ -120,3 +120,15 @@ function updateTotals() {
     document.getElementById("subtotal").innerText = `Rs. ${subtotal.toFixed(2)}`;
     document.getElementById("grand-total").innerText = `Rs. ${grandTotal.toFixed(2)}`;
 }
+
+// Loading saved customers from LocalStorage into the dropdown
+function loadCustomerDropdown() {
+    const customers = JSON.parse(localStorage.getItem("pos_customers")) || [];
+    const dropdown = document.getElementById("customer-dropdown");
+    customers.forEach(c => {
+        const opt = document.createElement("option");
+        opt.value = c.name;
+        opt.innerText = `${c.name} (${c.phone})`;
+        dropdown.appendChild(opt);
+    });
+}
