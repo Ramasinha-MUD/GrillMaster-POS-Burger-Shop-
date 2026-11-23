@@ -63,3 +63,34 @@ function addToCart(item) {
     }
     renderCart();
 }
+
+// Update to the Cart
+function renderCart() {
+    const cartContainer = document.getElementById("cart-items");
+    cartContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = `<p class="empty-msg">Cart is empty. Select items to start.</p>`;
+        updateTotals();
+        return;
+    }
+
+    cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+            <div>
+                <strong>${item.name}</strong><br>
+                <small>Rs. ${item.price} x ${item.qty}</small>
+            </div>
+            <div class="qty-controls">
+                <button onclick="changeQty(${index}, -1)">-</button>
+                <span> ${item.qty} </span>
+                <button onclick="changeQty(${index}, 1)">+</button>
+            </div>
+        `;
+        cartContainer.appendChild(div);
+    });
+
+    updateTotals();
+}
