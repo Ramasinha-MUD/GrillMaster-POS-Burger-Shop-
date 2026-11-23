@@ -132,3 +132,35 @@ function loadCustomerDropdown() {
         dropdown.appendChild(opt);
     });
 }
+
+// Complete the order and show the receipt
+function checkoutOrder() {
+    if (cart.length === 0) {
+        alert("Please add items to the cart first!");
+        return;
+    }
+
+    const customer = document.getElementById("customer-dropdown").value;
+    const total = document.getElementById("grand-total").innerText;
+    const orderId = "ORD-" + Math.floor(1000 + Math.random() * 9000);
+
+    let itemsHtml = cart.map(i => `<p>${i.name} x${i.qty} - Rs. ${(i.price * i.qty).toFixed(2)}</p>`).join("");
+
+    document.getElementById("receipt-details").innerHTML = `
+        <hr style="margin:10px 0;">
+        <p><strong>Order ID:</strong> ${orderId}</p>
+        <p><strong>Customer:</strong> ${customer}</p>
+        <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+        <hr style="margin:10px 0;">
+        ${itemsHtml}
+        <hr style="margin:10px 9;">
+        <h4>Grand Total: ${total}</h4>
+    `;
+
+    document.getElementById("receipt-modal").classList.remove("hidden");
+    clearCart();
+}
+
+function closeModal() {
+    document.getElementById("receipt-modal").classList.add("hidden");
+}
