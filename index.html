@@ -45,6 +45,43 @@
                 <!--Js item load in this class-->
             </div>
         </main>
+
+        <!---Right Side Order Cart / Billing--->
+        <section class="card-section">
+            <div class="cart-header">
+                <h2>Current Order</h2>
+                <button class="clear-btn" onclick="clearCart()">Clear</button>
+            </div>
+
+            <div class="customer-select">
+                <label for="customer-dropdown">Customer:</label>
+                <select id="customer-dropdown">
+                    <option value="Walk-in Customer">Walk-in Customer</option>
+                </select>
+            </div>
+
+            <div class="cart-items" id="cart-items">
+                <p class="empty-msg">Cart is empty. Select items to start.</p>
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">Rs.0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Discount (%):</span>
+                    <input type="number" id="discount-input" value="0" min="0" max="100" onchange="updateTotals()">
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total:</span>
+                    <span id="grand-total">Rs.0.00</span>
+                </div>
+                <button class="checkout-btn" onclick="checkoutOrder()">Complete order & Print</button>
+            </div>
+        </section>
     </div>
+
+    
 </body>
 </html>
