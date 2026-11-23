@@ -94,3 +94,12 @@ function renderCart() {
 
     updateTotals();
 }
+
+// Increase or decrease quantity
+function changeQty(index, delta) {
+    cart[index].qty += delta;
+    if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+    }
+    renderCart();
+}
