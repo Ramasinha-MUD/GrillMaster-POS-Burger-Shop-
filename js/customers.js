@@ -25,3 +25,22 @@ document.getElementById("customer-form").addEventListener("submit", (e) => {
     renderCustomers();
     e.target.reset();
 });
+
+// Render customer rows dynamically into table body
+function renderCustomers() {
+    const tbody = document.getElementById("customer-table-body");
+    tbody.innerHTML = "";
+
+    customers.forEach((c, index) => {
+        const row = `
+            <tr>
+                <td>${c.id}</td>
+                <td>${c.name}</td>
+                <td>${c.phone}</td>
+                <td>${c.email}</td>
+                <td><button class="clear-btn" onclick="deleteCustomer(${index})">Delete</button></td>
+            </tr>
+        `;
+        tbody.innerHTML += row;
+    });
+}
