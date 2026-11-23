@@ -1,0 +1,19 @@
+/* Reset styles and add POS grid layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 230px 1fr 360px;
+    height: 100vh;
+}
+
