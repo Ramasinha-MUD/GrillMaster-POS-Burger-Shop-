@@ -45,3 +45,11 @@ function filterCategory(category) {
         : menuItems.filter(item => item.category === category);
     renderMenu(filtered);
 }
+
+// Search from the search bar
+document.getElementById("search-input").addEventListener("input", (e) => {
+    const term = e.target.value.toLowerCase();
+    const filtered = menuItems.filter(item => item.name.toLowerCase().includes(term));
+    renderMenu(filtered);
+});
+
