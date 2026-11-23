@@ -15,3 +15,20 @@ function updateClock() {
     document.getElementById("live-clock").innerText = now.toLocaleTimeString();
 }
 
+// Display menu items on the screen
+function renderMenu(items) {
+    const grid = document.getElementById("menu-grid");
+    grid.innerHTML = "";
+
+    items.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "food-card";
+        card.onclick = () => addToCart(item);
+        card.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="food-img">
+            <h4>${item.name}</h4>
+            <p>Rs. ${item.price.toFixed(2)}</p>
+        `;
+        grid.appendChild(card);
+    });
+}
