@@ -103,3 +103,9 @@ function changeQty(index, delta) {
     }
     renderCart();
 }
+
+// Completely empty the cart
+function clearCart() {
+    cart = [];
+    renderCart();
+}
