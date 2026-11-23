@@ -8,3 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
     updateClock();
     setInterval(updateClock, 1000);
 });
+
+// Live Clock
+function updateClock() {
+    const now = new Date();
+    document.getElementById("live-clock").innerText = now.toLocaleTimeString();
+}
+
