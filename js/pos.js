@@ -109,3 +109,14 @@ function clearCart() {
     cart = [];
     renderCart();
 }
+
+// Calculating the total amount (Subtotal & Discount)
+function updateTotals() {
+    const Subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    const discountPercent = parseFloat(document.getElementById("discount-input").value) || 0;
+    const discountAmount = (subtotal * discountPercent) / 100;
+    const grandTotal = subtotal - discountAmount;
+
+    document.getElementById("subtotal").innerText = `Rs. ${subtotal.toFixed(2)}`;
+    document.getElementById("grand-total").innerText = `Rs. ${grandTotal.toFixed(2)}`;
+}
