@@ -53,3 +53,13 @@ document.getElementById("search-input").addEventListener("input", (e) => {
     renderMenu(filtered);
 });
 
+// Adding an item to the cart
+function addToCart(item) {
+    const existing = cart.find(c => c.id === item.id);
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({ ...item, qty: 1});
+    }
+    renderCart();
+}
