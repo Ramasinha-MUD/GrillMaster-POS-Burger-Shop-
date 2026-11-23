@@ -15,9 +15,9 @@ document.getElementById("customer-form").addEventListener("submit", (e) => {
 
     const newCustomer = {
         id: "C00" + (customers.length + 1),
-        name,
-        phone,
-        email 
+        name: name.trim(),
+        phone: phone.trim(),
+        email: email.trim() || "-" 
     };
 
     customers.push(newCustomer);

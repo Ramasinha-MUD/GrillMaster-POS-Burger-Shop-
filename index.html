@@ -16,7 +16,7 @@
             </div>
             <nav>
                 <a href="index.html" class="nav-link active">🍔 POS Billing</a>
-                <a href="customers.html" class="nav-link">👥 customers</a>
+                <a href="customers.html" class="nav-link">👥 Customers</a>
             </nav>
             <div class="sidebar-footer">
                 <p>Cashier: <strong>Admin</strong></p>
@@ -47,7 +47,7 @@
         </main>
 
         <!---Right Side Order Cart / Billing--->
-        <section class="card-section">
+        <section class="cart-section">
             <div class="cart-header">
                 <h2>Current Order</h2>
                 <button class="clear-btn" onclick="clearCart()">Clear</button>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="summary-row">
                     <span>Discount (%):</span>
-                    <input type="number" id="discount-input" value="0" min="0" max="100" onchange="updateTotals()">
+                    <input type="number" id="discount-input" value="0" min="0" max="100" oninput="updateTotals()">
                 </div>
                 <div class="summary-row total-row">
                     <span>Total:</span>
@@ -82,7 +82,7 @@
         </section>
     </div>
 
-    <!---Receipt Model--->
+    <!---Receipt Modal--->
     <div id="receipt-modal" class="modal hidden">
         <div class="modal-content">
             <h3>🧾 Order Receipt</h3>

@@ -36,7 +36,7 @@ function renderMenu(items) {
 // Filter by Category
 function filterCategory(category) {
     currentCategory = category;
-    document.querySelectorAll(".cat.btn").forEach(btn => {
+    document.querySelectorAll(".cat-btn").forEach(btn => {
         btn.classList.toggle("active", btn.innerText.includes(category)|| (category === 'All' && btn.innerText === 'All'));
     });
 
@@ -112,7 +112,7 @@ function clearCart() {
 
 // Calculating the total amount (Subtotal & Discount)
 function updateTotals() {
-    const Subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
     const discountPercent = parseFloat(document.getElementById("discount-input").value) || 0;
     const discountAmount = (subtotal * discountPercent) / 100;
     const grandTotal = subtotal - discountAmount;
@@ -153,7 +153,7 @@ function checkoutOrder() {
         <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
         <hr style="margin:10px 0;">
         ${itemsHtml}
-        <hr style="margin:10px 9;">
+        <hr style="margin:10px 0;">
         <h4>Grand Total: ${total}</h4>
     `;
 
